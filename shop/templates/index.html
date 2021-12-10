@@ -75,7 +75,7 @@
               </div>
               <div class="card-body">
                 <p>{{ product.category }}</p>
-                <h4 class="card-product__title"><a href="single-product.html">{{ product.tatle }}</a></h4>
+                <h4 class="card-product__title"><a href="{{ url_for('product_detail', product_id=product.id) }}">{{ product.tatle }}</a></h4>
                 <p class="card-product__price">${{ product.price }}</p>
               </div>
             </div>
@@ -125,7 +125,7 @@
             <div class="card-body">
               <p>{{ product.category }}</p>
               <p>Accessories</p>
-              <h4 class="card-product__title"><a href="single-product.html">{{ product.title }}</a></h4>
+              <h4 class="card-product__title"><a href="{{ url_for('product_detail', product_id=product.id) }}">{{ product.title }}</a></h4>
               <p class="card-product__price">${{ product.price }}</p>
             </div>
           </div>

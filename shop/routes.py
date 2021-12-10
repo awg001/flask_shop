@@ -40,7 +40,20 @@ def login():
         return redirect(url_for('index'))
     if request.method == 'POST':
         user = User.query.filter_by(email=request.form.get('email')).first()
-        print(user)
         if user and user.password == request.form.get('password'):
             login_user(user)
-    return render_template('login.html')  
+        return redirect(url_for('index'))
+    return render_template('login.html')
+
+
+
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+    logout_user()
+    return redirect(url_for('index'))  
+
+
+@app.route('/products/<int:product_id>')
+def product_detail(product_id):
+    product = Product.query.get(product_id)
+    return render_template('product_detail.html', product=product)
