@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="" method="POST" novalidate>
+    {{ form.hidden_tag() }}
+    
+    {{ form.email.label }}
+    
+    {% if form.email.errors %}
+    {{ form.email }} <br>
+    {% for error in form.email.errors %}
+        <span> {{ error }}</span>
+    {% endfor %}
+    {% else %}
+    {{ form.email }} <br>
+    {% endif %}
+    {{ form.password.label }}
+    {{ form.password }} <br>
+    {{ form.confirm_password.label }}
+    {{ form.confirm_password }} <br>
+
+    {{ form.submit }}
+</form>
+<!-- {% endblock %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class="alert alert-{{ category }}">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %} -->
